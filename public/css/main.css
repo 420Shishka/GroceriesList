@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap');
+
+*,
+*::after,
+*::before{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html, body{
+  font-family: 'Caveat';
+  background-color: #d5deff;
+  color: #232325;
+}
+
+h1{
+  font-size: 4.5rem;
+  font-weight: bold;
+}
+
+#wrapper{
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+#groceries{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  width: 580px;
+  min-height: 90vh;
+  background-color: #ddfff1;
+  border-radius: 25px;
+  box-shadow: 10px 10px 5px #c1b9df;
+}
+
+#groceries__input-container{
+  padding: 2rem;
+}
+
+#groceries__input-container i, input{
+  font-size: 2.3rem;
+}
+
+#user-input{
+  font-family: 'Caveat';
+  font-weight: bold;
+  outline: 0;
+  border: none;
+  border-bottom: 2px solid #232325;
+  background-color: transparent;
+}
+
+#groceries__items-list{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 0 2rem;
+  font-size: 2.5rem; 
+}
