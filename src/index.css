@@ -1,0 +1,24 @@
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: var(--primary-font);
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  --primary-font: 'Caveat', cursive;
+  --primary-color: #d5deff;
+  --secondary-color: #ddfff1;
+  --shadow-color: #c1b9df;
+  --text-color: #232325;
+  --fade-color: #777777;
+}

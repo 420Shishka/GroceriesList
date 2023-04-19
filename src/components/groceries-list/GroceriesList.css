@@ -1,0 +1,131 @@
+.groceries-container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0;
+  height: 100vh;
+  max-height: 100vh;
+}
+
+.groceries {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 0 1 auto;
+  padding: 2rem;
+  width: 580px;
+  background-color: var(--secondary-color);
+  border-radius: 25px;
+  box-shadow: 10px 10px 5px var(--shadow-color);
+}
+
+.groceries__title {
+  font-size: 4.5rem;
+  font-weight: bold;
+}
+
+.groceries__control-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 1 auto;
+  padding: 0 4rem;
+  width: 100%;
+}
+
+.groceries__btn {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-right: 1rem;
+}
+
+.groceries__btn button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 2rem;
+  background-color: transparent;
+  border: none;
+  border-radius: 100%;
+  outline: none;
+  cursor: pointer;
+  transition: .3s ease;
+}
+
+.groceries__btn button:hover {
+  background-color: var(--primary-color);
+}
+
+.groceries__input {
+  flex: 1 1 auto;
+}
+
+.groceries__input label {
+  display: block;
+  font-size: 1.5rem;
+}
+
+.groceries__input input {
+  display: block;
+  width: 100%;
+  font-family: var(--primary-font);
+  font-weight: bold;
+  font-size: 1.5rem;
+  outline: 0;
+  border: none;
+  border-bottom: 2px solid var(--text-color);
+  background-color: transparent;
+}
+
+.groceries__list {
+  overflow-y: scroll;
+  list-style-position: inside;
+  flex: 1 1 auto;
+  width: 100%;
+  padding-top: 1.5rem;
+  font-size: 1.7rem;
+}
+
+.groceries__list li {
+  position: relative;
+  overflow: hidden;
+  width: fit-content;
+  cursor: pointer;
+  transition: .3s ease;
+}
+
+.groceries__list li.done {
+  color: var(--fade-color);
+}
+
+.groceries__list li::marker {
+  font-size: 1rem;
+}
+
+.groceries__list li::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2.2px;
+  left: 0;
+  top: 60%;
+  border-radius: 50%;
+  background-color: var(--text-color);
+  transform: translate(-150%, -50%);
+  transition: .3s ease;
+}
+
+.groceries__list li.done::before {
+  transform: translate(0, -50%);
+}
+
+.groceries__list-empty {
+  padding-top: 1.5rem;
+  text-align: center;
+  font-size: 2rem;
+  color: var(--fade-color);
+}
