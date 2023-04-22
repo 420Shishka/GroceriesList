@@ -1,4 +1,4 @@
-import React, { ChangeEvent, KeyboardEvent, useId, useState } from 'react';
+import React, { KeyboardEvent, useId, useState, useRef } from 'react';
 import { nanoid } from 'nanoid';
 import { SlTrash } from 'react-icons/sl';
 
@@ -8,18 +8,20 @@ import { GroceryItem } from '../grocery-item/GroceryItem';
 
 const GroceriesList = () => {
   const inputId = useId();
+  const inputElement = useRef<HTMLInputElement>(null);
   const [data, setData] = useState<IGroceryItem[]>([]);
-  const [inputValue, setInputValue] = useState<string>('');
 
-  const addItem = () => {
-    const text = inputValue.trim();
+  const addItem = (event: KeyboardEvent<HTMLInputElement>) => {
+    if (event.key !== 'Enter') return;
+
+    const input = inputElement.current;
+    if (!input) return;
+
+    const text = input.value.trim();
     if (!text) return;
 
-    const id = nanoid();
-
-    data.push({ id, text });
-
-    console.log(data);
+    setData([...data, { id: nanoid(), text }]);
+    input.value = '';
   }
 
   return (
@@ -44,16 +46,8 @@ const GroceriesList = () => {
             <input
               id={inputId}
               type='text'
-              value={inputValue}
-              onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                setInputValue(event.target.value);
-              }}
-              onKeyDown={(event: KeyboardEvent<HTMLInputElement>) => {
-                if (event.key !== 'Enter') return;
-
-                addItem();
-                setInputValue('');
-              }}
+              ref={inputElement}
+              onKeyDown={addItem}
             />
           </div>
         </div>
@@ -61,11 +55,11 @@ const GroceriesList = () => {
         {data.length ? (
           <ul className='groceries__list'>
             {data.map(item => (
-              <GroceryItem label={item.text} />
+              <GroceryItem key={item.id} label={item.text} />
             ))}
           </ul>
         ) : (
-          <div className='groceries__list-empty'>No items</div>
+          <div className='groceries__list-empty'>- No items -</div>
         )}
 
 
