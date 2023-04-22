@@ -10,6 +10,7 @@ const GroceryItem = ({ label }: GroceryItemProps) => {
   return (
     <li
       className={isDone ? 'done' : ''}
+      title={label}
       onClick={() => setDone(!isDone)}
     >
       {label}
